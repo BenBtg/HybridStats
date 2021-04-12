@@ -46,8 +46,17 @@ namespace HybridStats.Droid
         private void FabOnClick(object sender, EventArgs eventArgs)
         {
             View view = (View) sender;
-            Snackbar.Make(view, "Replace with your own action", Snackbar.LengthLong)
-                .SetAction("Action", (View.IOnClickListener)null).Show();
+  //          Snackbar.Make(view, "Replace with your own action", Snackbar.LengthLong)
+    //            .SetAction("Action", (View.IOnClickListener)null).Show();
+            
+            var fragmentTx = SupportFragmentManager.BeginTransaction();
+            var firstFragment = new FirstFragment();
+
+            // The fragment will have the ID of Resource.Id.fragment_container.
+            fragmentTx.Add(Resource.Id.fragment_container, firstFragment);
+
+            // Commit the transaction.
+            fragmentTx.Commit();
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

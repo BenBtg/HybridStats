@@ -4,7 +4,8 @@ using System.Text;
 
 namespace HybridStats.Core
 {
-    class SecondViewModel
+    class SecondViewModel: BaseViewModel
     {
+        public override string Title { get => "Second View Model"; set => throw new NotImplementedException(); }
     }
 }

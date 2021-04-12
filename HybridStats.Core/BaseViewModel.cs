@@ -4,7 +4,8 @@ using System.Text;
 
 namespace HybridStats.Core
 {
-    class BaseViewModel
+    public abstract class BaseViewModel
     {
+        public abstract string Title { get; set; }
     }
 }
