@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HybridStats.Core
 {
-    class FirstViewModel : BaseViewModel
+    public class FirstViewModel : BaseViewModel
     {
         public override string Title { get => "First View Model"; set => throw new NotImplementedException(); }
     }

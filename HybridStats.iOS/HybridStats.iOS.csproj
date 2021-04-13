@@ -139,6 +139,7 @@
     <Compile Include="FirstViewController.designer.cs">
       <DependentUpon>FirstViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="BaseViewController.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HybridStats.Core\HybridStats.Core.csproj">
