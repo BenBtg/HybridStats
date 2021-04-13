@@ -3,12 +3,19 @@ using System.Collections.Generic;
 using System.Text;
 using System.Timers;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using HybridStats.Core.Services;
+using HybridStats.Core.MVVM;
 
 namespace HybridStats.Core
 {
     public class SecondViewModel : BaseViewModel
     {
         private string userName;
+
+        public ICommand NextPageCommand { get; private set; }
+
+        public INavigationService NavigationService {get;set;} //Assuming manual property injection but could go constructor injection or global static
 
         public override string Title { get => "Second View Model";}
 
@@ -18,6 +25,8 @@ namespace HybridStats.Core
 
         public override Task InitAsync()
         {
+            NextPageCommand = new Command(() => NavigationService?.NavigateAsync<ThirdViewModel>());
+
             UserName = $"Page 2 {count}";
 
             Timer = new Timer(5000);

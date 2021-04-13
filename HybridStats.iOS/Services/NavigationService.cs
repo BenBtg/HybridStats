@@ -1,40 +1,22 @@
 ﻿using System;
 using System.Threading.Tasks;
+using HybridStats.Core;
+using HybridStats.Core.Services;
 
 namespace HybridStats.iOS.Services
 {
-    class NavigationService
+    class NavigationService : INavigationService
     {
-        public string CurrentPageKey => throw new NotImplementedException();
-
-        public void Configure(string pageKey, Type pageType)
-        {
-            throw new NotImplementedException();
-        }
-
         public Task GoBack()
         {
-            throw new NotImplementedException();
+            // Todo: implement go back
+            return Task.CompletedTask;
         }
 
-        public Task NavigateAsync(string pageKey, bool animated = true)
+        public Task NavigateAsync<T>() where T : BaseViewModel
         {
-            throw new NotImplementedException();
-        }
-
-        public Task NavigateAsync(string pageKey, object parameter, bool animated = true)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task NavigateModalAsync(string pageKey, bool animated = true)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task NavigateModalAsync(string pageKey, object parameter, bool animated = true)
-        {
-            throw new NotImplementedException();
+            // Todo: Implement navigation
+            return Task.CompletedTask;
         }
     }
 }

@@ -32,7 +32,13 @@ namespace HybridStats.iOS
 
         void TitleChanged()
         {
-            this.NameLabel.Text = ViewModel.UserName;
+            NameLabel.Text = ViewModel.UserName;
+            NextButton.TouchUpInside += NextButton_TouchUpInside;
+        }
+
+        private void NextButton_TouchUpInside(object sender, EventArgs e)
+        {
+            ViewModel.NextPageCommand?.Execute(null);
         }
 
         public override void InitView()
