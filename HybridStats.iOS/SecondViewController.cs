@@ -1,22 +1,26 @@
-﻿using Foundation;
+﻿using System;
 using HybridStats.Core;
-using System;
 using UIKit;
 
 namespace HybridStats.iOS
 {
-    public partial class ViewController : BaseViewController<SecondViewModel>
+    public partial class SecondViewController : BaseViewController<SecondViewModel>
     {
-        public ViewController (IntPtr handle) : base (handle)
+        public SecondViewController() : base("SecondViewController", null)
         {
         }
 
-        public override void ViewDidLoad ()
+        public override void ViewDidLoad()
         {
-            base.ViewDidLoad ();
-            
+            base.ViewDidLoad();
+            // Perform any additional setup after loading the view, typically from a nib.
         }
 
+        public override void DidReceiveMemoryWarning()
+        {
+            base.DidReceiveMemoryWarning();
+            // Release any cached data, images, etc that aren't in use.
+        }
         public override void ViewDidAppear(bool animated)
         {
             base.ViewDidAppear(animated);
@@ -24,13 +28,6 @@ namespace HybridStats.iOS
             ViewModel.WatchProperty(nameof(SecondViewModel.UserName), TitleChanged);
         }
 
-        public override void DidReceiveMemoryWarning ()
-        {
-            base.DidReceiveMemoryWarning ();
-            // Release any cached data, images, etc that aren't in use.
-        }
-
-        
         void TitleChanged()
         {
             this.NameLabel.Text = ViewModel.UserName;
@@ -43,3 +40,4 @@ namespace HybridStats.iOS
         }
     }
 }
+

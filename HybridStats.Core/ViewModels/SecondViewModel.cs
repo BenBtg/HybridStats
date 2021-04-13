@@ -10,7 +10,7 @@ namespace HybridStats.Core
     {
         private string userName;
 
-        public override string Title { get => "Second View Model"; set => throw new NotImplementedException(); }
+        public override string Title { get => "Second View Model";}
 
         public Timer Timer { get; set; }
 
@@ -18,7 +18,7 @@ namespace HybridStats.Core
 
         public override Task InitAsync()
         {
-            UserName = $"Alex B {count}";
+            UserName = $"Page 2 {count}";
 
             Timer = new Timer(5000);
             Timer.Elapsed += Timer_Elapsed;

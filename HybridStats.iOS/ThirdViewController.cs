@@ -1,11 +1,12 @@
 ﻿using System;
+
 using UIKit;
 
 namespace HybridStats.iOS
 {
-    public partial class FirstViewController : UIViewController
+    public partial class ThirdViewController : UIViewController
     {
-        public FirstViewController() : base("FirstViewController", null)
+        public ThirdViewController() : base("ThirdViewController", null)
         {
         }
 

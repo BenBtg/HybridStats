@@ -6,6 +6,6 @@ namespace HybridStats.Core
 {
     public class FirstViewModel : BaseViewModel
     {
-        public override string Title { get => "First View Model"; set => throw new NotImplementedException(); }
+        public override string Title { get => "First View Model"; }
     }
 }

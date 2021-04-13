@@ -14,7 +14,6 @@ namespace HybridStats.iOS
             ViewModel = Activator.CreateInstance(typeof(T)) as T;
         }
 
-
         public override async void ViewDidLoad()
         {
             base.ViewDidLoad();

@@ -9,8 +9,8 @@ using System.CodeDom.Compiler;
 
 namespace HybridStats.iOS
 {
-	[Register ("ViewController")]
-	partial class ViewController
+	[Register ("SecondViewController")]
+	partial class SecondViewController
 	{
 		[Outlet]
 		UIKit.UILabel NameLabel { get; set; }
@@ -23,14 +23,14 @@ namespace HybridStats.iOS
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (NameLabel != null) {
-				NameLabel.Dispose ();
-				NameLabel = null;
-			}
-
 			if (TitleLabel != null) {
 				TitleLabel.Dispose ();
 				TitleLabel = null;
+			}
+
+			if (NameLabel != null) {
+				NameLabel.Dispose ();
+				NameLabel = null;
 			}
 
 			if (NextButton != null) {

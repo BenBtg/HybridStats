@@ -121,6 +121,8 @@
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
     <InterfaceDefinition Include="Main.storyboard" />
     <InterfaceDefinition Include="FirstViewController.xib" />
+    <InterfaceDefinition Include="ThirdViewController.xib" />
+    <InterfaceDefinition Include="SecondViewController.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -140,6 +142,14 @@
       <DependentUpon>FirstViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="BaseViewController.cs" />
+    <Compile Include="ThirdViewController.cs" />
+    <Compile Include="ThirdViewController.designer.cs">
+      <DependentUpon>ThirdViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecondViewController.cs" />
+    <Compile Include="SecondViewController.designer.cs">
+      <DependentUpon>SecondViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HybridStats.Core\HybridStats.Core.csproj">

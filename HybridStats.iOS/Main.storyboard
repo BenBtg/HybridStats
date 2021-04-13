@@ -18,18 +18,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="giv-61-9CX">
-                                <rect key="frame" x="20" y="438" width="374" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oc0-Ib-618" userLabel="TitleLabel">
+                                <rect key="frame" x="20" y="64" width="340" height="175"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="175" id="ezl-yA-kgA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="giv-61-9CX">
+                                <rect key="frame" x="20" y="218" width="374" height="563"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X4w-2L-ufD">
+                                <rect key="frame" x="20" y="789" width="374" height="73"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="73" id="IZX-bA-rmb"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="NextPage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BJP-j0-exE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="giv-61-9CX" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="CP0-jH-sis"/>
+                            <constraint firstItem="Oc0-Ib-618" firstAttribute="leading" secondItem="giv-61-9CX" secondAttribute="leading" id="Dbh-de-h9r"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Oc0-Ib-618" secondAttribute="trailing" constant="34" id="GVB-hv-X6z"/>
+                            <constraint firstItem="giv-61-9CX" firstAttribute="leading" secondItem="X4w-2L-ufD" secondAttribute="leading" id="Non-hR-3nu"/>
+                            <constraint firstItem="Oc0-Ib-618" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Tf1-ra-5Uy"/>
+                            <constraint firstItem="giv-61-9CX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="174" id="bNu-Kz-xut"/>
+                            <constraint firstItem="X4w-2L-ufD" firstAttribute="top" secondItem="giv-61-9CX" secondAttribute="bottom" constant="8" id="cqi-D8-Pav"/>
+                            <constraint firstItem="X4w-2L-ufD" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottomMargin" id="kxI-Lo-qJk"/>
+                            <constraint firstItem="Oc0-Ib-618" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="ruf-4f-FNg"/>
+                            <constraint firstItem="giv-61-9CX" firstAttribute="trailing" secondItem="X4w-2L-ufD" secondAttribute="trailing" id="y5D-Oz-bV7"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="NameLabel" destination="giv-61-9CX" id="DVj-0I-GJq"/>
+                        <outlet property="NameLabel" destination="giv-61-9CX" id="CZ1-dM-n1r"/>
+                        <outlet property="NextButton" destination="X4w-2L-ufD" id="O21-c7-492"/>
+                        <outlet property="TitleLabel" destination="Oc0-Ib-618" id="iki-I4-VPE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
