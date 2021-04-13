@@ -30,7 +30,6 @@ namespace HybridStats.iOS
             // Release any cached data, images, etc that aren't in use.
         }
 
-        
         void TitleChanged()
         {
             this.NameLabel.Text = ViewModel.UserName;

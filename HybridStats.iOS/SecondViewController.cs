@@ -6,7 +6,7 @@ namespace HybridStats.iOS
 {
     public partial class SecondViewController : BaseViewController<SecondViewModel>
     {
-        public SecondViewController() : base("SecondViewController", null)
+        public SecondViewController(IntPtr handle) : base(handle)
         {
         }
 
@@ -37,6 +37,12 @@ namespace HybridStats.iOS
         {
             NameLabel.Text = ViewModel.UserName;
             TitleLabel.Text = ViewModel.Title;
+            NextButton.TouchUpInside += NextButton_TouchUpInside;
+        }
+
+        private void NextButton_TouchUpInside(object sender, EventArgs e)
+        {
+            // Todo: Use navigation Service
         }
     }
 }
