@@ -1,41 +1,41 @@
-﻿using HybridStats.Core.Services;
+﻿using AndroidX.Fragment.App;
+using HybridStats.Core;
+using HybridStats.Core.Services;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace HybridStats.Droid.Services
 {
     class NavigationService : INavigationService
     {
-        public string CurrentPageKey => throw new NotImplementedException();
-
-        public void Configure(string pageKey, Type pageType)
+        private readonly FragmentManager fragmentManager;
+        private Dictionary<Type, Type> FragmentMap;
+        public NavigationService(FragmentManager fragmentManager, Dictionary<Type, Type> fragmentMap)
         {
-            throw new NotImplementedException();
+            this.fragmentManager = fragmentManager;
+
+            this.FragmentMap = fragmentMap;
+
         }
 
         public Task GoBack()
         {
-            throw new NotImplementedException();
+            this.fragmentManager.PopBackStack();
+            return Task.CompletedTask;
         }
 
-        public Task NavigateAsync(string pageKey, bool animated = true)
+        public Task NavigateAsync<T>() where T : BaseViewModel
         {
-            throw new NotImplementedException();
-        }
+            var transaction = fragmentManager.BeginTransaction();
 
-        public Task NavigateAsync(string pageKey, object parameter, bool animated = true)
-        {
-            throw new NotImplementedException();
-        }
+            var fragment = FragmentMap[typeof(T)];
 
-        public Task NavigateModalAsync(string pageKey, bool animated = true)
-        {
-            throw new NotImplementedException();
-        }
+            transaction.Replace(Resource.Id.root_container, Activator.CreateInstance(fragment) as Fragment).Commit();
 
-        public Task NavigateModalAsync(string pageKey, object parameter, bool animated = true)
-        {
-            throw new NotImplementedException();
+            return Task.CompletedTask;
         }
     }
 }

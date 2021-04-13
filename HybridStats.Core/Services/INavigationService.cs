@@ -7,9 +7,7 @@ namespace HybridStats.Core.Services
 {
     public interface INavigationService
     {
-        string CurrentPageKey { get; }
-
-        Task NavigateAsync(BaseViewModel viewModel, bool animated = true);
-        Task NavigateAsync(BaseViewModel viewModel, object parameter, bool animated = true);
+        Task GoBack();
+        Task NavigateAsync<T>() where T : BaseViewModel;
     }
 }
