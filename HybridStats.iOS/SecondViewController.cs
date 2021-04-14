@@ -25,25 +25,15 @@ namespace HybridStats.iOS
         {
             base.ViewDidAppear(animated);
 
-            ViewModel.WatchProperty(nameof(SecondViewModel.UserName), TitleChanged);
         }
 
-        void TitleChanged()
-        {
-            this.NameLabel.Text = ViewModel.UserName;
-        }
+
 
         public override void InitView()
         {
-            NameLabel.Text = ViewModel.UserName;
-            TitleLabel.Text = ViewModel.Title;
-            NextButton.TouchUpInside += NextButton_TouchUpInside;
+
         }
 
-        private void NextButton_TouchUpInside(object sender, EventArgs e)
-        {
-            // Todo: Use navigation Service
-        }
     }
 }
 

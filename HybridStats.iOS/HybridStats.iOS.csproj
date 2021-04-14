@@ -120,9 +120,6 @@
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
     <InterfaceDefinition Include="Main.storyboard" />
-    <InterfaceDefinition Include="FirstViewController.xib" />
-    <InterfaceDefinition Include="ThirdViewController.xib" />
-    <InterfaceDefinition Include="SecondViewController.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />

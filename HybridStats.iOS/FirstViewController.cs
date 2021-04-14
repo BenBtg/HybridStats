@@ -1,11 +1,12 @@
 ﻿using System;
+using HybridStats.Core;
 using UIKit;
 
 namespace HybridStats.iOS
 {
-    public partial class FirstViewController : UIViewController
+    public partial class FirstViewController : BaseViewController<FirstViewModel>
     {
-        public FirstViewController() : base("FirstViewController", null)
+        public FirstViewController(IntPtr handle) : base(handle)
         {
         }
 
@@ -19,6 +20,16 @@ namespace HybridStats.iOS
         {
             base.DidReceiveMemoryWarning();
             // Release any cached data, images, etc that aren't in use.
+        }
+
+        public override void InitView()
+        {
+            
+        }
+
+        partial void SecondClicked(UIKit.UIButton sender)
+        {
+            ViewModel.SecondNavigateCommand.Execute(null);
         }
     }
 }
