@@ -9,8 +9,14 @@ using System.CodeDom.Compiler;
 
 namespace HybridStats.iOS
 {
-	[Register("SecondViewController")]
+	[Register ("SecondViewController")]
 	partial class SecondViewController
 	{
+		[Action ("NextClicked:")]
+		partial void NextClicked (Foundation.NSObject sender);
+		
+		void ReleaseDesignerOutlets ()
+		{
+		}
 	}
 }

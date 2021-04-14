@@ -10,6 +10,10 @@ namespace HybridStats.iOS
         {
         }
 
+        public override void InitView()
+        {
+        }
+
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
@@ -27,13 +31,12 @@ namespace HybridStats.iOS
 
         }
 
-
-
-        public override void InitView()
+        partial void NextClicked(Foundation.NSObject sender)
         {
-
+            ViewModel.NextPageCommand.Execute(null);
         }
 
+    
     }
 }
 

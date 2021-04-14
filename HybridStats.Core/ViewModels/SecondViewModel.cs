@@ -15,8 +15,6 @@ namespace HybridStats.Core
 
         public ICommand NextPageCommand { get; private set; }
 
-        public INavigationService NavigationService {get;set;} //Assuming manual property injection but could go constructor injection or global static
-
         public override string Title { get => "Second View Model";}
 
         public Timer Timer { get; set; }
@@ -25,7 +23,7 @@ namespace HybridStats.Core
 
         public override Task InitAsync()
         {
-            NextPageCommand = new Command(() => NavigationService?.NavigateAsync<ThirdViewModel>());
+            NextPageCommand = new Command(() => App.Naviagtion?.NavigateAsync<ThirdViewModel>());
 
             UserName = $"Page 2 {count}";
 
