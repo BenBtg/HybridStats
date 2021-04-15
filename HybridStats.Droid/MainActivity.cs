@@ -27,9 +27,14 @@ namespace HybridStats.Droid
                 {typeof(SecondViewModel), typeof(FirstFragment) }
             });
 
-            navigation.NavigateAsync<SecondViewModel>();
+            App.Naviagtion = new NavigationService(FragmentManager, new Dictionary<Type, Type>()
+            {
+                {typeof(SecondViewModel), typeof(SecondFragment) },
+                {typeof(ThirdViewModel), typeof(ThirdFragment) }
+            });
 
-        }
+            navigation.NavigateAsync<SecondViewModel>();
+         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {

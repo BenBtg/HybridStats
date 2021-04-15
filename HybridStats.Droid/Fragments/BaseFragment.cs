@@ -17,6 +17,8 @@ namespace HybridStats.Droid.Fragments
             ViewModel = Activator.CreateInstance(typeof(T)) as T;
 
             await ViewModel.InitAsync();
+
+            this.Activity.Title = ViewModel.Title;
         }
     }
 }
