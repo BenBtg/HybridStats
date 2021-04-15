@@ -12,11 +12,18 @@ namespace HybridStats.iOS
 	[Register ("FirstViewController")]
 	partial class FirstViewController
 	{
+		[Outlet]
+		UIKit.UINavigationItem TitleLabel { get; set; }
+
 		[Action ("SecondClicked:")]
 		partial void SecondClicked (UIKit.UIButton sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (TitleLabel != null) {
+				TitleLabel.Dispose ();
+				TitleLabel = null;
+			}
 		}
 	}
 }

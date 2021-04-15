@@ -12,7 +12,9 @@ namespace HybridStats.iOS
 
         public override void InitView()
         {
+            Title = ViewModel.Title;
         }
+
 
         public override void ViewDidLoad()
         {

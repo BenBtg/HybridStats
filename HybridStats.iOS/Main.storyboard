@@ -23,7 +23,7 @@
             </objects>
             <point key="canvasLocation" x="-919" y="-57"/>
         </scene>
-        <!--First View Controller-->
+        <!--Title-->
         <scene sceneID="U0W-vs-NDo">
             <objects>
                 <viewController id="4bW-Zt-qzx" customClass="FirstViewController" sceneMemberID="viewController">
@@ -35,31 +35,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2k-Ne-wsO">
-                                <rect key="frame" x="192" y="433" width="32" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2k-Ne-wsO">
+                                <rect key="frame" x="191" y="433" width="32" height="30"/>
                                 <state key="normal" title="Next"/>
                                 <connections>
                                     <action selector="SecondClicked:" destination="4bW-Zt-qzx" eventType="touchUpInside" id="KKg-HR-ahV"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAR-H8-ebC">
-                                <rect key="frame" x="187" y="213" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
+                        <constraints>
+                            <constraint firstItem="Y2k-Ne-wsO" firstAttribute="centerY" secondItem="hdz-1Z-znG" secondAttribute="centerY" id="ElJ-oe-FiZ"/>
+                            <constraint firstItem="Y2k-Ne-wsO" firstAttribute="centerX" secondItem="hdz-1Z-znG" secondAttribute="centerX" id="rh3-1e-TCn"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="0rF-6a-4Nn"/>
+                    <navigationItem key="navigationItem" title="Title" id="bSE-1E-j2f"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sLI-Fw-yxK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-149" y="-58"/>
+            <point key="canvasLocation" x="-149.27536231884059" y="-58.258928571428569"/>
         </scene>
-        <!--Second View Controller-->
+        <!--Title-->
         <scene sceneID="7UW-pJ-Ydo">
             <objects>
                 <viewController storyboardIdentifier="SecondViewController" id="cFi-g4-sED" customClass="SecondViewController" sceneMemberID="viewController">
@@ -71,21 +67,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AaP-bj-rJh">
-                                <rect key="frame" x="186" y="182" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tH8-R5-113">
-                                <rect key="frame" x="113" y="433" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Back"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Bn-NR-Z5l">
-                                <rect key="frame" x="254" y="433" width="32" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Bn-NR-Z5l">
+                                <rect key="frame" x="191" y="433" width="32" height="30"/>
                                 <state key="normal" title="Next"/>
                                 <connections>
                                     <action selector="NextClicked:" destination="cFi-g4-sED" eventType="touchUpInside" id="8f8-Nd-dwZ"/>
@@ -93,7 +76,12 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
+                        <constraints>
+                            <constraint firstItem="1Bn-NR-Z5l" firstAttribute="centerY" secondItem="Pe7-Ij-o2E" secondAttribute="centerY" id="ddf-vD-03b"/>
+                            <constraint firstItem="1Bn-NR-Z5l" firstAttribute="centerX" secondItem="Pe7-Ij-o2E" secondAttribute="centerX" id="j7m-FP-bkW"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="lBn-GO-Hwh"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cTx-au-Fnv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -110,25 +98,12 @@
                     <view key="view" contentMode="scaleToFill" id="yE0-vy-X5b">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IGk-IP-bzE">
-                                <rect key="frame" x="186" y="189" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kar-Kg-VYC">
-                                <rect key="frame" x="184" y="433" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemPinkColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="aNl-nk-Vuq"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KTJ-so-aHG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationItem title="Title" id="LCx-0o-99K"/>
             </objects>
             <point key="canvasLocation" x="1161" y="-58"/>
         </scene>
