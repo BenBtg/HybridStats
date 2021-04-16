@@ -4,7 +4,7 @@ using System.Text;
 using System.Windows.Input;
 using HybridStats.Core.MVVM;
 
-namespace HybridStats.Core
+namespace HybridStats.Core.ViewModels
 {
     public class FirstViewModel : BaseViewModel
     {
@@ -14,12 +14,7 @@ namespace HybridStats.Core
 
         public FirstViewModel()
         {
-            SecondNavigateCommand = new Command(SecondNavigate);
-        }
-
-        void SecondNavigate()
-        {
-            App.Navigation.NavigateAsync<SecondViewModel>();
+            SecondNavigateCommand = new Command(() => App.Navigation?.NavigateAsync<SecondViewModel>());
         }
     }
 }

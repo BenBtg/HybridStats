@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using HybridStats.Core.ViewModels;
 
-namespace HybridStats.Core
+namespace HybridStats.Core.ViewModels
 {
     public abstract class BaseViewModel : BaseNotifyPropertyChanged
     {

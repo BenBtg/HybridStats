@@ -4,8 +4,7 @@ using System.Text;
 
 namespace HybridStats.Core.ViewModels
 {
-    public class ThirdViewModel: BaseViewModel
+    public abstract class FormsBaseViewModel : BaseViewModel
     {
-        public override string Title { get => "Third View Model"; }
     }
 }

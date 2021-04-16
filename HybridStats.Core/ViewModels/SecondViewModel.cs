@@ -7,9 +7,9 @@ using System.Windows.Input;
 using HybridStats.Core.Services;
 using HybridStats.Core.MVVM;
 
-namespace HybridStats.Core
+namespace HybridStats.Core.ViewModels
 {
-    public class SecondViewModel : BaseViewModel
+    public class SecondViewModel : FormsBaseViewModel
     {
         private string userName;
 
