@@ -23,7 +23,7 @@ namespace HybridStats.Core
 
         public override Task InitAsync()
         {
-            NextPageCommand = new Command(() => App.Naviagtion?.NavigateAsync<ThirdViewModel>());
+            NextPageCommand = new Command(() => App.Navigation?.NavigateAsync<ThirdViewModel>());
 
             UserName = $"Page 2 {count}";
 

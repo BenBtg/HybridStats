@@ -18,7 +18,7 @@ namespace NewSingleViewTemplate {
 		{
 			var root = Window.RootViewController as UINavigationController;
 
-			App.Naviagtion = new NavigationService(root, new Dictionary<Type, Type>()
+			App.Navigation = new NavigationService(root, new Dictionary<Type, Type>()
 			{
 				{typeof(SecondViewModel), typeof(SecondViewController) },
 				{typeof(ThirdViewModel), typeof(ThirdViewController) }

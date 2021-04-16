@@ -19,7 +19,7 @@ namespace HybridStats.Core
 
         void SecondNavigate()
         {
-            App.Naviagtion.NavigateAsync<SecondViewModel>();
+            App.Navigation.NavigateAsync<SecondViewModel>();
         }
     }
 }

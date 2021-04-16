@@ -23,7 +23,7 @@ namespace HybridStats.Droid.Services
 
         public Task GoBack()
         {
-            this.fragmentManager.PopBackStack();
+            this.fragmentManager.PopBackStackImmediate();
             return Task.CompletedTask;
         }
 
@@ -32,7 +32,8 @@ namespace HybridStats.Droid.Services
             var transaction = fragmentManager.BeginTransaction();
 
             var fragment = FragmentMap[typeof(T)];
-
+         
+            transaction.AddToBackStack(nameof(T));
             transaction.Replace(Resource.Id.root_container, Activator.CreateInstance(fragment) as Fragment).Commit();
 
             return Task.CompletedTask;

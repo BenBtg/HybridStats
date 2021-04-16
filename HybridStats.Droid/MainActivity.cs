@@ -15,26 +15,41 @@ namespace HybridStats.Droid
     public class MainActivity : FragmentActivity
     {
         AndroidX.Fragment.App.FragmentManager FragmentManager;
-        INavigationService navigation;
+        
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
             FragmentManager = this.SupportFragmentManager;
-            navigation = new NavigationService(FragmentManager, new Dictionary<Type, Type>()
-            {
-                {typeof(SecondViewModel), typeof(FirstFragment) }
-            });
 
-            App.Naviagtion = new NavigationService(FragmentManager, new Dictionary<Type, Type>()
+            FragmentManager.BackStackChanged += FragmentManager_BackStackChanged;
+            
+            App.Navigation = new NavigationService(FragmentManager, new Dictionary<Type, Type>()
             {
+                {typeof(FirstViewModel), typeof(FirstFragment) },
                 {typeof(SecondViewModel), typeof(SecondFragment) },
                 {typeof(ThirdViewModel), typeof(ThirdFragment) }
             });
 
-            navigation.NavigateAsync<SecondViewModel>();
+            App.Navigation.NavigateAsync<FirstViewModel>();
          }
+
+        public override void OnBackPressed()
+        {
+            App.Navigation.GoBack();
+            base.OnBackPressed();
+        }
+
+        private void FragmentManager_BackStackChanged(object sender, EventArgs e)
+        {
+            Console.WriteLine(e);
+        }
+
+        protected override void OnStop()
+        {
+            base.OnStop();
+        }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
