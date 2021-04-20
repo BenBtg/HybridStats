@@ -3,6 +3,7 @@ using Android.OS;
 using Android.Views;
 using AndroidX.Fragment.App;
 using HybridStats.Core;
+using HybridStats.Core.ViewModels;
 
 namespace HybridStats.Droid.Fragments
 {

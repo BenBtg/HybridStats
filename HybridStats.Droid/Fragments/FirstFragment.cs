@@ -6,6 +6,7 @@ using Android.Views;
 using Android.Widget;
 using AndroidX.Fragment.App;
 using HybridStats.Core;
+using HybridStats.Core.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -25,7 +25,6 @@ namespace HybridStats.iOS
 
         public override void ViewDidDisappear(bool animated)
         {
-
             ViewModel.ClearWatchers();
 
             base.ViewDidDisappear(animated);

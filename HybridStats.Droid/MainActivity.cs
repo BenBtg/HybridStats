@@ -1,13 +1,14 @@
-﻿using System;
+﻿using Android.App;
 using Android.OS;
 using Android.Runtime;
 using AndroidX.Fragment.App;
-using Android.App;
-using HybridStats.Droid.Services;
-using HybridStats.Core.Services;
 using HybridStats.Core;
-using System.Collections.Generic;
+using HybridStats.Core.ViewModels;
+using HybridStats.Core.Views;
 using HybridStats.Droid.Fragments;
+using HybridStats.Droid.Services;
+using System;
+using System.Collections.Generic;
 
 namespace HybridStats.Droid
 {
@@ -20,6 +21,7 @@ namespace HybridStats.Droid
         {
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+            Xamarin.Forms.Forms.Init(this, null);
             SetContentView(Resource.Layout.activity_main);
             FragmentManager = this.SupportFragmentManager;
 
@@ -28,7 +30,7 @@ namespace HybridStats.Droid
             App.Navigation = new NavigationService(FragmentManager, new Dictionary<Type, Type>()
             {
                 {typeof(FirstViewModel), typeof(FirstFragment) },
-                {typeof(SecondViewModel), typeof(SecondFragment) },
+                {typeof(SecondViewModel), typeof(SecondPage) },
                 {typeof(ThirdViewModel), typeof(ThirdFragment) }
             });
 

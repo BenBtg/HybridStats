@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using HybridStats.Core.Services;
 using HybridStats.Core.MVVM;
+using Xamarin.Essentials;
 
 namespace HybridStats.Core.ViewModels
 {
@@ -23,7 +24,7 @@ namespace HybridStats.Core.ViewModels
 
         public override Task InitAsync()
         {
-            NextPageCommand = new Command(() => App.Navigation?.NavigateAsync<ThirdViewModel>());
+            NextPageCommand = new Command(NextPageCommandExecute);
 
             UserName = $"Page 2 {count}";
 
@@ -33,6 +34,15 @@ namespace HybridStats.Core.ViewModels
             Timer.Start();
 
             return Task.CompletedTask;
+        }
+
+        private void NextPageCommandExecute()
+        {
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                App.Navigation?.NavigateAsync<ThirdViewModel>();
+            });
+            
         }
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)

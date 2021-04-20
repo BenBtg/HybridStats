@@ -1,11 +1,14 @@
 ﻿using AndroidX.Fragment.App;
-using HybridStats.Core;
 using HybridStats.Core.Services;
+using HybridStats.Core.ViewModels;
+using HybridStats.Core.Views;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
+using System.Diagnostics;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.Android;
 
 namespace HybridStats.Droid.Services
 {
@@ -29,13 +32,29 @@ namespace HybridStats.Droid.Services
 
         public Task NavigateAsync<T>() where T : BaseViewModel
         {
-            var transaction = fragmentManager.BeginTransaction();
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                var transaction = fragmentManager.BeginTransaction();
 
-            var fragment = FragmentMap[typeof(T)];
-         
-            transaction.AddToBackStack(nameof(T));
-            transaction.Replace(Resource.Id.root_container, Activator.CreateInstance(fragment) as Fragment).Commit();
 
+                var fragment = FragmentMap[typeof(T)];
+
+                transaction.AddToBackStack(null);
+
+                if (fragment.IsSubclassOf(typeof(BasePage<T>)))
+                {
+                    Debug.WriteLine("Is Forms page!");
+
+                    var formPage = Activator.CreateInstance(fragment) as BasePage<T>;
+
+                    var formsFragment = formPage.CreateSupportFragment(Xamarin.Essentials.Platform.AppContext);
+                    transaction.Replace(Resource.Id.root_container, formsFragment).Commit();
+                }
+                else
+                {
+                    transaction.Replace(Resource.Id.root_container, Activator.CreateInstance(fragment) as Fragment).Commit();
+                }
+            });
             return Task.CompletedTask;
         }
     }

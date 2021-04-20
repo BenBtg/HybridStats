@@ -12,11 +12,19 @@ namespace HybridStats.Core.Views
     {
         public T ViewModel { get; set; }
 
-       public BasePage()
+        public BasePage()
         {
             ViewModel = Activator.CreateInstance(typeof(T)) as T;
+            
+            InitView();
         }
 
-        public abstract void InitView();
+        public async virtual void InitView()
+        {
+            await ViewModel.InitAsync();
+            BindingContext = ViewModel;
+
+            Title = ViewModel.Title;
+        }
     }
 }

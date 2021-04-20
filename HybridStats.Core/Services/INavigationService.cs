@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using HybridStats.Core.ViewModels;
 using System.Threading.Tasks;
 
 namespace HybridStats.Core.Services
