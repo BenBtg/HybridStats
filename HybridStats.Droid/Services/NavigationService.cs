@@ -1,4 +1,5 @@
-﻿using AndroidX.Fragment.App;
+﻿using Android.Content;
+using AndroidX.Fragment.App;
 using HybridStats.Core.Services;
 using HybridStats.Core.ViewModels;
 using HybridStats.Core.Views;
@@ -14,19 +15,18 @@ namespace HybridStats.Droid.Services
 {
     class NavigationService : INavigationService
     {
-        private readonly FragmentManager fragmentManager;
+        private readonly Context context;
         private Dictionary<Type, Type> FragmentMap;
-        public NavigationService(FragmentManager fragmentManager, Dictionary<Type, Type> fragmentMap)
+        public NavigationService(Android.Content.Context context, Dictionary<Type, Type> fragmentMap)
         {
-            this.fragmentManager = fragmentManager;
-
+            this.context = context;
             this.FragmentMap = fragmentMap;
 
         }
 
         public Task GoBack()
         {
-            this.fragmentManager.PopBackStackImmediate();
+            this.context.GetFragmentManager().PopBackStackImmediate();
             return Task.CompletedTask;
         }
 
@@ -34,7 +34,7 @@ namespace HybridStats.Droid.Services
         {
             MainThread.BeginInvokeOnMainThread(() =>
             {
-                var transaction = fragmentManager.BeginTransaction();
+                var transaction = this.context.GetFragmentManager().BeginTransaction();
 
 
                 var fragment = FragmentMap[typeof(T)];
@@ -45,9 +45,10 @@ namespace HybridStats.Droid.Services
                 {
                     Debug.WriteLine("Is Forms page!");
 
+                    
                     var formPage = Activator.CreateInstance(fragment) as BasePage<T>;
-
-                    var formsFragment = formPage.CreateSupportFragment(Xamarin.Essentials.Platform.AppContext);
+                     
+                    var formsFragment = formPage.CreateSupportFragment(context);
                     transaction.Replace(Resource.Id.root_container, formsFragment).Commit();
                 }
                 else

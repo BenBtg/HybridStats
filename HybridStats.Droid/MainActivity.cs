@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.OS;
 using Android.Runtime;
+using AndroidX.AppCompat.App;
 using AndroidX.Fragment.App;
 using HybridStats.Core;
 using HybridStats.Core.ViewModels;
@@ -13,7 +14,7 @@ using System.Collections.Generic;
 namespace HybridStats.Droid
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
-    public class MainActivity : FragmentActivity
+    public class MainActivity : AppCompatActivity
     {
         AndroidX.Fragment.App.FragmentManager FragmentManager;
         
@@ -27,7 +28,7 @@ namespace HybridStats.Droid
 
             FragmentManager.BackStackChanged += FragmentManager_BackStackChanged;
             
-            App.Navigation = new NavigationService(FragmentManager, new Dictionary<Type, Type>()
+            App.Navigation = new NavigationService(this, new Dictionary<Type, Type>()
             {
                 {typeof(FirstViewModel), typeof(FirstFragment) },
                 {typeof(SecondViewModel), typeof(SecondPage) },
