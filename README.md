@@ -1,4 +1,7 @@
+# HybridStats
 HybridStats is a simple 3 page app used to demonstrate the process of using Xamarin.Forms embedding to migrate from a Xamarin.Native application to Xamarin.Forms incrementally.
+
+The app simply allows you to navigate to the next page via a centered button that uses a command binding to a ViewModel for each page. 
 
 The main branch shows an example of the initial state of the Xamarin.iOS and Android application before introducing Xamrin.Forms
 
