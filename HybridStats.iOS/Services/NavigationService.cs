@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using HybridStats.Core;
 using HybridStats.Core.Services;
+using HybridStats.Core.ViewModels;
+using HybridStats.Core.Views;
 using UIKit;
+using Xamarin.Forms.Platform.iOS;
 
 namespace HybridStats.iOS.Services
 {
@@ -39,8 +43,22 @@ namespace HybridStats.iOS.Services
         public Task NavigateAsync<T>() where T : BaseViewModel
         {
             var controllerType = ViewControllerMap[typeof(T)];
-            var controller = Storyboard.InstantiateViewController(controllerType.Name);
-            navigationController.PushViewController(controller, true);
+            
+            if (controllerType.IsSubclassOf(typeof(BasePage<T>)))
+            {
+                Debug.WriteLine("Is Forms page!");
+
+                var formPage = Activator.CreateInstance(controllerType) as BasePage<T>;
+                     
+                var formsController = formPage.CreateViewController();
+                navigationController.PushViewController(formsController, true);
+            }
+            else
+            {
+                var controller = Storyboard.InstantiateViewController(controllerType.Name);
+                navigationController.PushViewController(controller, true);
+            }
+
             return Task.CompletedTask;
         }
     }

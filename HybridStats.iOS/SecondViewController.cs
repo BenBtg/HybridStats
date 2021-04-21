@@ -1,5 +1,6 @@
 ﻿using System;
 using HybridStats.Core;
+using HybridStats.Core.ViewModels;
 using UIKit;
 
 namespace HybridStats.iOS

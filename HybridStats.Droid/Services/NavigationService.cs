@@ -21,7 +21,6 @@ namespace HybridStats.Droid.Services
         {
             this.context = context;
             this.FragmentMap = fragmentMap;
-
         }
 
         public Task GoBack()

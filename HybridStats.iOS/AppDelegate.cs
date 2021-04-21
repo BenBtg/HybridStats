@@ -4,6 +4,7 @@ using Foundation;
 using HybridStats.Core;
 using HybridStats.iOS.Services;
 using UIKit;
+using Xamarin.Forms;
 
 namespace HybridStats.iOS
 {
@@ -18,7 +19,7 @@ namespace HybridStats.iOS
         [Export ("application:didFinishLaunchingWithOptions:")]
         public bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
         {
-            
+            Forms.Init();
             return true;
         }
 

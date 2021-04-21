@@ -30,7 +30,6 @@ namespace HybridStats.Droid
             
             App.Navigation = new NavigationService(this, new Dictionary<Type, Type>()
             {
-                {typeof(FirstViewModel), typeof(FirstFragment) },
                 {typeof(SecondViewModel), typeof(SecondPage) },
                 {typeof(ThirdViewModel), typeof(ThirdFragment) }
             });

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using Foundation;
 using HybridStats.Core;
+using HybridStats.Core.ViewModels;
+using HybridStats.Core.Views;
 using HybridStats.iOS;
 using HybridStats.iOS.Services;
 using UIKit;
@@ -20,7 +22,7 @@ namespace NewSingleViewTemplate {
 
 			App.Navigation = new NavigationService(root, new Dictionary<Type, Type>()
 			{
-				{typeof(SecondViewModel), typeof(SecondViewController) },
+				{typeof(SecondViewModel), typeof(SecondPage) },
 				{typeof(ThirdViewModel), typeof(ThirdViewController) }
 			});
 		}
