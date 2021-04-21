@@ -16,7 +16,6 @@ namespace HybridStats.Droid
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
-        AndroidX.Fragment.App.FragmentManager FragmentManager;
         
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -24,29 +23,16 @@ namespace HybridStats.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             Xamarin.Forms.Forms.Init(this, null);
             SetContentView(Resource.Layout.activity_main);
-            FragmentManager = this.SupportFragmentManager;
 
-            FragmentManager.BackStackChanged += FragmentManager_BackStackChanged;
-            
             App.Navigation = new NavigationService(this, new Dictionary<Type, Type>()
             {
+                {typeof(FirstViewModel), typeof(FirstFragment) },
                 {typeof(SecondViewModel), typeof(SecondPage) },
                 {typeof(ThirdViewModel), typeof(ThirdFragment) }
             });
 
             App.Navigation.NavigateAsync<FirstViewModel>();
          }
-
-        public override void OnBackPressed()
-        {
-            App.Navigation.GoBack();
-            base.OnBackPressed();
-        }
-
-        private void FragmentManager_BackStackChanged(object sender, EventArgs e)
-        {
-            Console.WriteLine(e);
-        }
 
         protected override void OnStop()
         {

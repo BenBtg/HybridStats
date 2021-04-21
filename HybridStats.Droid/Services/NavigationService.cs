@@ -16,11 +16,11 @@ namespace HybridStats.Droid.Services
     class NavigationService : INavigationService
     {
         private readonly Context context;
-        private Dictionary<Type, Type> FragmentMap;
-        public NavigationService(Android.Content.Context context, Dictionary<Type, Type> fragmentMap)
+        private Dictionary<Type, Type> ViewMap;
+        public NavigationService(Android.Content.Context context, Dictionary<Type, Type> viewMap)
         {
             this.context = context;
-            this.FragmentMap = fragmentMap;
+            this.ViewMap = viewMap;
         }
 
         public Task GoBack()
@@ -35,25 +35,16 @@ namespace HybridStats.Droid.Services
             {
                 var transaction = this.context.GetFragmentManager().BeginTransaction();
 
+                var target = Activator.CreateInstance(ViewMap[typeof(T)]);
 
-                var fragment = FragmentMap[typeof(T)];
+                Fragment fragment = null;
 
                 transaction.AddToBackStack(null);
 
-                if (fragment.IsSubclassOf(typeof(BasePage<T>)))
-                {
-                    Debug.WriteLine("Is Forms page!");
+                if (target is ContentPage cp)
+                    target = cp.CreateSupportFragment(context);
 
-                    
-                    var formPage = Activator.CreateInstance(fragment) as BasePage<T>;
-                     
-                    var formsFragment = formPage.CreateSupportFragment(context);
-                    transaction.Replace(Resource.Id.root_container, formsFragment).Commit();
-                }
-                else
-                {
-                    transaction.Replace(Resource.Id.root_container, Activator.CreateInstance(fragment) as Fragment).Commit();
-                }
+                transaction.Replace(Resource.Id.root_container,  target as Fragment).Commit();
             });
             return Task.CompletedTask;
         }
