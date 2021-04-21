@@ -31,21 +31,19 @@ namespace HybridStats.Droid.Services
 
         public Task NavigateAsync<T>() where T : BaseViewModel
         {
-            MainThread.BeginInvokeOnMainThread(() =>
+            var transaction = this.context.GetFragmentManager().BeginTransaction();
+
+            var target = Activator.CreateInstance(ViewMap[typeof(T)]);
+
+            transaction.AddToBackStack(null);
+
+            if (target is ContentPage cp)
             {
-                var transaction = this.context.GetFragmentManager().BeginTransaction();
+                target = cp.CreateSupportFragment(context);
+            }
 
-                var target = Activator.CreateInstance(ViewMap[typeof(T)]);
+            transaction.Replace(Resource.Id.root_container,  target as Fragment).Commit();
 
-                Fragment fragment = null;
-
-                transaction.AddToBackStack(null);
-
-                if (target is ContentPage cp)
-                    target = cp.CreateSupportFragment(context);
-
-                transaction.Replace(Resource.Id.root_container,  target as Fragment).Commit();
-            });
             return Task.CompletedTask;
         }
     }

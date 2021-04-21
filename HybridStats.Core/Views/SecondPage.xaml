@@ -4,16 +4,12 @@
                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                  xmlns:ViewModels="clr-namespace:HybridStats.Core.ViewModels"
                  x:TypeArguments="ViewModels:SecondViewModel"
-                 x:Class="HybridStats.Core.Views.SecondPage">
+                 x:Class="HybridStats.Core.Views.SecondPage"
+                 BackgroundColor="LightSalmon">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Label Text="{Binding UserName}" TextColor="Green"/>
-            
-            <Button Text="Next" Command="{Binding NextPageCommand}"/>
-            <Button Text="Button 2" Clicked="Button_Clicked"/>
-        </StackLayout>
+        <Grid>
+            <Label Text="Welcome to Xamarin Forms!" FontSize="Large" HorizontalOptions="Center" Margin="50"/>
+            <Button Text="Next" Command="{Binding NextPageCommand}" HorizontalOptions="Center" VerticalOptions="Center"/>
+        </Grid>
     </ContentPage.Content>
 </views:BasePage>
