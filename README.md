@@ -5,6 +5,6 @@ The app simply allows you to navigate to the next page via a centered button tha
 
 The main branch shows an example of the initial state of the Xamarin.iOS and Android application before introducing Xamrin.Forms
 
-The "FormsPage" branch shows how the second page of the application can be effectivley swapped out while maintaining the existing ViewModel based navigation  pattern.
+The **FormsPage** branch shows how the second page of the application can be effectivley swapped out while maintaining the existing ViewModel based navigation  pattern.
 
 The process assumes that the MVVM arhicteure is used in the exitsing application with implementation thus allowing a clean seperation of concerns between the Views and the Service layer.
