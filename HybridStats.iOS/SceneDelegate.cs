@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Foundation;
+using HybridStats;
 using HybridStats.Core;
 using HybridStats.Core.ViewModels;
 using HybridStats.Core.Views;

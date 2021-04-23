@@ -11,16 +11,19 @@ namespace HybridStats.iOS
     // The UIApplicationDelegate for the application. This class is responsible for launching the
     // User Interface of the application, as well as listening (and optionally responding) to application events from iOS.
     [Register ("AppDelegate")]
-    public class AppDelegate : UIResponder, IUIApplicationDelegate {
+    public class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
+    {
 
         [Export("window")]
         public UIWindow Window { get; set; }
 
         [Export ("application:didFinishLaunchingWithOptions:")]
-        public bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
+        public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            Forms.Init();
-            return true;
+            global::Xamarin.Forms.Forms.Init();
+            LoadApplication(new App());
+
+            return base.FinishedLaunching(app, options);
         }
 
 
