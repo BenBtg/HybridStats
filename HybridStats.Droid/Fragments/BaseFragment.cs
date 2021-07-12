@@ -1,25 +1,29 @@
 ﻿using System;
-using Android.OS;
-using Android.Views;
 using AndroidX.Fragment.App;
-using HybridStats.Core;
 using HybridStats.Core.ViewModels;
 
 namespace HybridStats.Droid.Fragments
 {
-    public class BaseFragment<T> : Fragment where T : BaseViewModel
+    public abstract class BaseFragment : Fragment
     {
+        public abstract BaseViewModel BaseViewModel { get; }
+    }
+
+    public abstract class BaseFragment<T> : BaseFragment where T : BaseViewModel
+    {
+        public override BaseViewModel BaseViewModel => ViewModel;
+
         public T ViewModel { get; set; }
 
-        public override async void OnCreate(Bundle savedInstanceState)
+        public BaseFragment()
         {
-            base.OnCreate(savedInstanceState);
-
             ViewModel = Activator.CreateInstance(typeof(T)) as T;
+            InitView();
+        }
 
+        public async virtual void InitView()
+        {
             await ViewModel.InitAsync();
-
-            this.Activity.Title = ViewModel.Title;
         }
     }
 }

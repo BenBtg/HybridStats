@@ -2,7 +2,6 @@
 using Android.OS;
 using Android.Runtime;
 using AndroidX.AppCompat.App;
-using AndroidX.Fragment.App;
 using HybridStats.Core;
 using HybridStats.Core.ViewModels;
 using HybridStats.Core.Views;
@@ -13,7 +12,7 @@ using System.Collections.Generic;
 
 namespace HybridStats.Droid
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
         
@@ -32,11 +31,6 @@ namespace HybridStats.Droid
             });
 
             App.Navigation.NavigateAsync<FirstViewModel>();
-         }
-
-        protected override void OnStop()
-        {
-            base.OnStop();
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
@@ -45,5 +39,5 @@ namespace HybridStats.Droid
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
-	}
+    }
 }
