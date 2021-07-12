@@ -51,6 +51,7 @@ namespace HybridStats.iOS.Services
                 var formPage = Activator.CreateInstance(controllerType) as BasePage<T>;
                      
                 var formsController = formPage.CreateViewController();
+                formsController.Title = formPage.Title;
                 navigationController.PushViewController(formsController, true);
             }
             else
